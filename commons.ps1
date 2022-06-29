@@ -78,3 +78,19 @@ Class list{
         return $false
     }
 }
+
+# Allows for easier implementation of web requests using defined objects
+Class request
+{
+    [string] get($url){
+        $wc = New-Object System.Net.WebClient
+        $result = $wc.DownloadString($url)
+        return $result
+    }
+
+    [string] get($url="", $params=""){
+        $wc = New-Object System.Net.WebClient
+        $result = $wc.DownloadString("$($url)$($params)")
+        return $result
+    }
+}
