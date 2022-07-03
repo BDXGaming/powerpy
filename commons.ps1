@@ -1,4 +1,7 @@
+# Load all the PowerPy library files
 . request\requst.ps1
+. os\os.ps1
+. sys\sys.ps1
 
 $numbers = "^\d+$"
 
@@ -50,6 +53,10 @@ function list($array){
     $list = [list]::new()
     $list.data = $array
     return $list
+}
+
+function type_of($object){
+    return $object.GetType()
 }
 
 # This is a wrapper class around the native array class providing additional functionality
@@ -148,6 +155,10 @@ Class list{
         $string += "]"
         return $string
     }
+
+    [string] GetType(){
+        return "list"
+    }
 }
 
 Class dict{
@@ -220,5 +231,9 @@ Class dict{
         }
         $string += "}"
         return $string
+    }
+
+    [string] GetType(){
+        return "dict"
     }
 }
