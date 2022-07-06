@@ -1,4 +1,6 @@
 # Load all the PowerPy library files
+. sys\file.ps1
+. sys\stdout.ps1
 . request\requst.ps1
 . os\os.ps1
 . sys\sys.ps1

@@ -1,8 +1,11 @@
 Class PowerSys{
 
+    # The instance of the standard output class
+    [stdout] $stdout = [stdout]::get()
+
     # Test implementation (NOT RECOMMENDED)
-    static [string] stdout($data){
-        return [string] $data
+    static stdout($data){
+        [stdout]::write($data)
     }
 
 }
