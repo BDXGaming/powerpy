@@ -5,7 +5,12 @@
 . os\os.ps1
 . sys\sys.ps1
 
+# Regex for any numbers at the end of a line
 $numbers = "^\d+$"
+
+# This resets the stdout whenever powerpy is loaded
+[stdout]::stdout = [stdout]::new()
+
 
 # This function is used to print out any data to the console/terminal
 function print($data, $end="", $sep=", ")

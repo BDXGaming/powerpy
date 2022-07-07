@@ -1,9 +1,10 @@
 Class stdout{
 
     [object] $output = "console"
-    [file] $file 
+    [file] $file = [file]::new()
     static [stdout] $stdout = $null
 
+    # Gets the instance of the stdout
     static [stdout] get(){
         if([stdout]::stdout -eq $null){
             [stdout]::stdout = [stdout]::new()
@@ -15,11 +16,14 @@ Class stdout{
     write($data){
 
         $has_output = $false
-        if ($this.output -eq "console"){
+
+        # If stdout is pointed at the terminal
+        if ($this.output -eq "console" -and (!($has_output))){
             Write-Host $data
             $has_output = $true
         }
 
+        # If stdout is pointed at a file
         if (($this.output -eq "file" ) -and (!($has_output))){
             $this.file.write($data)
         }
