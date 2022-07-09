@@ -6,7 +6,7 @@ All core classes and functions are in the commons.ps1 file while all additional 
 the request class. As this is not a core feature it is not in the commons file. However, all files are loaded into the commons file so they can be used.
 
 ## How to use
-At the top of your powershell file put the following, replacing powerpy_file_dir with the directory where commons.ps1 is located.
+At the top of your powershell file put the following, replacing powerpy_file_dir with the directory where powerpy.ps1 is located.
 ```powershell
 . powerpy_file_dir\commons.ps1
 ```
